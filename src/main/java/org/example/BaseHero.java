@@ -1,6 +1,6 @@
 package org.example;
 
-public abstract class BaseHero {
+public abstract class BaseHero implements Interface {
     public String name;
     public int health;
     public String type;
@@ -14,4 +14,5 @@ public abstract class BaseHero {
         this.queue = queue;
         this.baseDamage = baseDamage;
     }
+
 }
