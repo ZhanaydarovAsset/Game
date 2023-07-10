@@ -3,13 +3,20 @@ package units;
 import java.util.ArrayList;
 
 public abstract class Shooters extends BaseHero{
-    public Shooters(String name, int health, String type, int queue, int baseDamage, int x, int y) {
+    public Shooters(String name, int health, String type, int queue, int baseDamage, int shoots,  int x, int y) {
         super(name, health, type, queue, baseDamage, x, y);
+        this.shoots = shoots;
     }
+    protected int shoots;
 
     @Override
-    public void step(ArrayList<BaseHero> enemies) {
-        int[] temp =  findEnemy(enemies);
-        System.out.println(enemies.get(temp[1]).name + " " + temp[0]);
+    public void step(ArrayList<BaseHero> enemies, ArrayList<BaseHero> their) {
+        if(this.health <= 0 || this.shoots == 0) return;
+        BaseHero temp =  findEnemy(enemies);
+        temp.health -= this.baseDamage;
+        for(BaseHero item : their) {
+            if (item.type.contains("Peasant")) return;
+        }
+        this.shoots--;
     }
 }

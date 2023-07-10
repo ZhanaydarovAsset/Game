@@ -8,8 +8,7 @@ public abstract class Wizard extends BaseHero{
     }
 
     @Override
-    public void step(ArrayList<BaseHero> enemies) {
-        int[] temp =  findEnemy(enemies);
-        System.out.println(enemies.get(temp[1]).name + " " + temp[0]);
+    public void step(ArrayList<BaseHero> enemies, ArrayList<BaseHero> their) {
+
     }
 }

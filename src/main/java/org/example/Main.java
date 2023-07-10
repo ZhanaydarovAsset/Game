@@ -3,6 +3,7 @@ package org.example;
 import units.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 public class Main {
@@ -33,13 +34,32 @@ public class Main {
                     team1.add(new Peasant("Holop", 9, new Random().nextInt(50)));
             }
         }
+        ArrayList<BaseHero> allUnits = new ArrayList<>();
+        allUnits.addAll(team1);
+        allUnits.addAll(team2);
+
+        allUnits.sort((o1, o2) -> o1.getQueue() - o2.getQueue());
+
         System.out.println("Team #1");
         team1.forEach(j -> System.out.println(j.getInfo()));
         System.out.println("Team #2");
         team2.forEach(n -> System.out.println(n.getInfo()));
 
-        team1.forEach(n -> n.step(team2));
+        for (BaseHero item : allUnits){
+            if(team1.contains(item)){
+                item.step(team2,team1);
+            }
+            else {
+                item.step(team1, team2);
+            }
+        }
+
         System.out.println("-".repeat(15));
-        team2.forEach(n -> n.step(team1));
+
+
+        team1.forEach(j -> System.out.println(j.getInfo()));
+        System.out.println("Team #2");
+        team2.forEach(n -> System.out.println(n.getInfo()));
+
     }
 }
