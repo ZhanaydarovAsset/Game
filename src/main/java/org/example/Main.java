@@ -51,7 +51,7 @@ public class Main {
         allUnits.addAll(team1);
         allUnits.addAll(team2);
 
-        allUnits.sort((o1, o2) -> o2.getQueue() - o1.getQueue());
+        allUnits.sort((o1, o2) -> o1.getQueue() - o2.getQueue());
 
         Scanner enter = new Scanner(System.in);
         while (true) {

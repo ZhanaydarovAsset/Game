@@ -2,7 +2,7 @@ package units;
 
 public class Monk extends Wizard {
     public Monk(String name, int x, int y) {
-        super(name, 100, "Monk", 7, 0, 2, x, y);
+        super(name, 100, "Monk", 7, 0, x, y, 3);
     }
 
 }
