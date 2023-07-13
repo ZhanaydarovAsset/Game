@@ -3,7 +3,6 @@ package org.example;
 import units.*;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,26 +16,38 @@ public class Main {
 
         for (int i = 0; i < 11; i++) {
             int k = new Random().nextInt(4);
-            int y = new Random().nextInt(50);
             switch (k) {
                 case 0:
-                    team2.add(new Mage("Alisa", 1, i));
                     team1.add(new Monk("Li", 10, i));
                     break;
                 case 1:
-                    team2.add(new Archer("Masha", 1, i));
                     team1.add(new Sniper("Saske", 10, i));
                     break;
                 case 2:
-                    team2.add(new Pikeman("Gektor", 1, i
-                    ));
                     team1.add(new Bandit("Loki", 10, i));
                     break;
                 default:
-                    team2.add(new Peasant("Ivan", 1, i));
                     team1.add(new Peasant("Holop", 10, i));
             }
         }
+
+        for (int i = 0; i < 11; i++) {
+            int k = new Random().nextInt(4);
+            switch (k) {
+                case 0:
+                    team2.add(new Mage("Alisa", 1, i));
+                    break;
+                case 1:
+                    team2.add(new Archer("Masha", 1, i));
+                    break;
+                case 2:
+                    team2.add(new Pikeman("Gektor", 1, i));
+                    break;
+                default:
+                    team2.add(new Peasant("Ivan", 1, i));
+            }
+        }
+
         allUnits.addAll(team1);
         allUnits.addAll(team2);
 
@@ -54,6 +65,5 @@ public class Main {
                 }
             }
         }
-
     }
 }
