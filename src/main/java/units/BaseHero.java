@@ -11,7 +11,6 @@ public abstract class BaseHero implements Interface {
     public int getQueue() {
         return queue;
     }
-
     public int baseDamage;
     Coordinate playgraund;
 
@@ -23,7 +22,6 @@ public abstract class BaseHero implements Interface {
         this.baseDamage = baseDamage;
         playgraund = new Coordinate(x, y);
     }
-
     protected BaseHero findEnemy(ArrayList<BaseHero> enemies) {
         double min = 1000;
         int count = 0;
@@ -35,5 +33,15 @@ public abstract class BaseHero implements Interface {
         }
         return enemies.get(count);
     }
-
+    @Override
+    public String toString() {
+        return super.getClass().getSimpleName();
+    }
+    public int[] getCoords() {
+        int[] coords = {playgraund.x, playgraund.y};
+        return coords;
+    }
+    public String getInfo() {
+        return String.format("%s, %s, \u2661: %d, x: %d, y: %d", name, type, health, playgraund.x, playgraund.y);
+    }
 }

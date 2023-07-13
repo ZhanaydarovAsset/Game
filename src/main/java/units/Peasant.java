@@ -7,14 +7,11 @@ public class Peasant extends BaseHero{
 
         super(name, 100, "Peasant", 5, 0, x, y);
     }
-
+    boolean busy = false;
     @Override
     public void step(ArrayList<BaseHero> enemies, ArrayList<BaseHero> their) {
-
-    }
-
-    @Override
-    public String getInfo(){
-        return String.format("Name: %s, type: %s, hp: %d", name, type, health);
+        if(health == 0){
+            this.busy = true;
+        }
     }
 }

@@ -15,7 +15,10 @@ public abstract class Shooters extends BaseHero{
         BaseHero temp =  findEnemy(enemies);
         temp.health -= this.baseDamage;
         for(BaseHero item : their) {
-            if (item.type.contains("Peasant")) return;
+            if (item.type.contains("Peasant") && !((Peasant)(item)).busy && item.health > 0){
+                ((Peasant)(item)).busy = true;
+                return;
+            }
         }
         this.shoots--;
     }
