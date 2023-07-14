@@ -11,6 +11,7 @@ public class Main {
     static ArrayList<BaseHero> team1 = new ArrayList<>();
     static ArrayList<BaseHero> team2 = new ArrayList<>();
 
+
     public static void main(String[] args) {
 
 
@@ -63,6 +64,14 @@ public class Main {
                 } else {
                     item.step(team1, team2);
                 }
+            }
+            if(View.teamLose(team1)){
+                System.out.println("Team #2 win");
+                break;
+            }
+            if(View.teamLose(team2)){
+                System.out.println("Team #1 win");
+                break;
             }
         }
     }

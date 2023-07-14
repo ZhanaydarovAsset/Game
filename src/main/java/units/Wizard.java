@@ -13,13 +13,13 @@ public abstract class Wizard extends BaseHero{
     public void step(ArrayList<BaseHero> enemies, ArrayList<BaseHero> their) {
         if(this.health > 0){
             for(BaseHero item : their){
-                if(item.health < 90){
+                if(item.health < 90 & item.health != 0){
                     item.health += healing;
                     return;
                 }
             }
             BaseHero temp =  findEnemy(enemies);
-            temp.health -= this.healing;
+            temp.getDamage(((float) (healing)));
         }
     }
 }

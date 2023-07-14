@@ -3,6 +3,7 @@ package org.example;
 
 import units.BaseHero;
 
+import java.util.ArrayList;
 import java.util.Collections;
 public class View {
     private static int step = 1;
@@ -83,5 +84,18 @@ public class View {
         tabSetter(Main.team1.get(9).getInfo().length(), l[0]);
         System.out.println(Main.team2.get(9).getInfo());
         System.out.println(bottom10);
+    }
+
+    public static boolean teamLose(ArrayList<BaseHero> teams) {
+        int count = 0;
+        for (BaseHero item : teams) {
+            if (item.health != 0) {
+                count++;
+            }
+        }
+        if (count == 0){
+            return true;
+        }
+        return false;
     }
 }

@@ -13,7 +13,7 @@ public abstract class Shooters extends BaseHero{
     public void step(ArrayList<BaseHero> enemies, ArrayList<BaseHero> their) {
         if(this.health <= 0 || this.shoots == 0) return;
         BaseHero temp =  findEnemy(enemies);
-        temp.health -= this.baseDamage;
+        temp.getDamage(this.baseDamage);
         for(BaseHero item : their) {
             if (item.type.contains("Peasant") && !((Peasant)(item)).busy && item.health > 0){
                 ((Peasant)(item)).busy = true;
